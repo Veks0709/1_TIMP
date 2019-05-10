@@ -1,0 +1,20 @@
+#include <iostream> 
+#include "Skital.h" 
+#include <string>
+using namespace std; 
+
+void checkskit(const string Text, const int key, const int chto) 
+{ 
+string SkitalText; 
+Swap Skital(key, chto); 
+SkitalText = Skital.endecrypt(Text); 
+cout<<"key="<<key<<endl; 
+cout<<Text<<endl; 
+cout<<SkitalText<<endl; 
+
+} 
+int main() 
+{ 
+checkskit("NuNakonetcto",4,1); 
+return 0; 
+}

@@ -1,0 +1,96 @@
+#include "Skital.h"
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+Swap::Swap(const int key, const int ende1)
+{
+    kolver = key;
+    ende = ende1;
+}
+
+
+std::string Swap::endecrypt(const string stroka)
+{
+
+    int kolgor,c;
+    double sum,sum1;
+    sum=stroka.length();
+    sum1 = sum/kolver;
+    kolgor = ceil(sum1);
+    int m = kolgor;
+    int n = kolver;
+    cout<<"строки m "<<m<<endl;
+    cout<<"столбцы n "<<n<<endl;
+    char matr[n][m];
+    string resalt;
+    for (unsigned int j = 0; j < m; j++) {
+        for(unsigned int i = 0; i < n; i++) {
+            matr[i][j] = '1';
+        }
+    }
+    if (ende == 1) {
+        for (unsigned int j = 0; j < m; j++) {
+            for(unsigned int i = 0; i < n; i++) {
+                if (j*n +i < sum) {
+                    matr[i][j] = stroka [j*n +i];
+                    cout << matr[i][j];
+                    if (i==n-1) {
+                        cout<<endl;
+                    }
+                }
+            }
+        }
+        cout<< "Код для дешивровки"<< endl;
+        for (int i = n-1; i >= 0 ; i--) {
+            for(int j = 0; j < m; j++) {
+                cout << matr[i][j];
+                resalt [c] = matr[i][j];
+                c++;
+            }
+        }
+        cout<<endl;
+        cout<< "Читаемый код"<< endl;
+        for (int i = n-1; i >= 0 ; i--) {
+            for(int j = 0; j < m; j++) {
+                if (matr[i][j] != '1')
+                    cout << matr[i][j];
+
+            }
+        }
+        cout<<endl;
+    } else if (ende == 0) {
+        for (int i = n-1; i >= 0 ; i--) {
+            for(int j = 0; j < m; j++) {
+                if (c < sum) {
+                    matr[i][j] = stroka [c];
+                    cout << matr[i][j];
+                    c++;
+                }
+            }
+        }
+        cout<< "Код для дешивровки"<< endl;
+        c=0;
+        for (unsigned int j = 0; j < m; j++) {
+            for(unsigned int i = 0; i < n; i++) {
+                cout << matr[i][j];
+                resalt [c] = matr[i][j];
+                c++;
+            }
+        }
+        cout<<endl;
+        cout<< "Читаемый код"<< endl;
+        for (unsigned int j = 0; j < m; j++) {
+            for(unsigned int i = 0; i < n; i++) {
+                if (matr[i][j] != '1')
+                    cout << matr[i][j];
+
+            }
+        }
+        cout<<endl;
+    }else
+        cout<<"Error"<<endl;
+    return resalt;
+}

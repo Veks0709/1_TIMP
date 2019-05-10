@@ -1,0 +1,14 @@
+#pragma once 
+#include <vector> 
+#include <string> 
+#include <map> 
+
+class Swap
+{ 
+private: 
+int kolver; 
+int ende;
+public: 
+Swap(const int key1, const int ende1);
+std::string endecrypt(const std::string stroka); //шифрование 
+};
