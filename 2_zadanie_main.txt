@@ -1,20 +1,32 @@
-#include <iostream> 
-#include "Skital.h" 
+#include <iostream>
+#include "Skital.h"
 #include <string>
-using namespace std; 
+using namespace std;
 
-void checkskit(const string Text, const int key, const int chto) 
-{ 
-string SkitalText; 
-Swap Skital(key, chto); 
-SkitalText = Skital.endecrypt(Text); 
-cout<<"key="<<key<<endl; 
-cout<<Text<<endl; 
-cout<<SkitalText<<endl; 
+void checkskit(const string Text, const int key, const int chto)
+{
+    string SkitalText;
+    Swap Skital(key, chto);
+    SkitalText = Skital.endecrypt(Text);
+    cout << endl << endl;
+    cout << "key=" << key << endl;
+    cout << Text << endl;
+    cout << SkitalText << endl;
 
-} 
-int main() 
-{ 
-checkskit("NuNakonetcto",4,1); 
-return 0; 
+}
+int main()
+{
+    string text1;
+    int chto;
+    int kluch;
+    cout << "Введите фразу для дешивровки - ";
+    cin >> text1;
+    cout << endl;
+    cout << "Введите ключ - ";
+    cin >> kluch;
+    cout << "Хотите ли вы зашифровать или дешифровать текст ? [1/0]" << endl;
+    cin >> chto;
+    cout << endl;
+    checkskit(text1,kluch,chto);
+    return 0;
 }
